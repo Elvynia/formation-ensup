@@ -3,6 +3,12 @@ package fr.formation.gamebook.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="game")
 public class GameData {
 
 	private String id;
@@ -29,6 +35,7 @@ public class GameData {
 		return result;
 	}
 
+	@XmlAttribute
 	public String getId() {
 		return id;
 	}
@@ -37,6 +44,8 @@ public class GameData {
 		this.id = id;
 	}
 
+	@XmlElementWrapper(name = "steps")
+	@XmlElement(name = "step")
 	public List<Paragraph> getParagraphs() {
 		return paragraphs;
 	}

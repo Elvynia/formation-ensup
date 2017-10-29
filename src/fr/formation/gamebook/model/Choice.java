@@ -1,5 +1,8 @@
 package fr.formation.gamebook.model;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlValue;
+
 public class Choice {
 
 	private Integer id;
@@ -7,6 +10,10 @@ public class Choice {
 	private String content;
 	
 	private Integer paragraphId;
+	
+	public Choice() {
+		
+	}
 
 	public Choice(int id, String content, int paragraphId) {
 		this.id = id;
@@ -14,6 +21,7 @@ public class Choice {
 		this.paragraphId = paragraphId;
 	}
 
+	@XmlAttribute
 	public Integer getId() {
 		return id;
 	}
@@ -22,6 +30,7 @@ public class Choice {
 		this.id = id;
 	}
 
+	@XmlValue
 	public String getContent() {
 		return content;
 	}
@@ -30,6 +39,7 @@ public class Choice {
 		this.content = content;
 	}
 
+	@XmlAttribute(name="gotostep")
 	public Integer getParagraphId() {
 		return paragraphId;
 	}

@@ -5,12 +5,14 @@ import java.util.Optional;
 import java.util.Scanner;
 
 import fr.formation.gamebook.loader.DataLoader;
-import fr.formation.gamebook.loader.MockDataLoader;
+import fr.formation.gamebook.loader.XmlDataLoader;
 import fr.formation.gamebook.model.Choice;
 import fr.formation.gamebook.model.GameData;
 import fr.formation.gamebook.model.Paragraph;
 
 public class GameBook implements Runnable {
+	
+	private static final String DATA_PATH = "/home/jmasson/workspaces/superhistoire.xml";
 
 	public static void main(String[] args) {
 		if (args.length >= 1) {
@@ -26,7 +28,7 @@ public class GameBook implements Runnable {
 
 	private GameBook(String username) {
 		this.username = username;
-		this.dataLoader = new MockDataLoader();
+		this.dataLoader = new XmlDataLoader(GameBook.DATA_PATH);
 		this.scanner = new Scanner(System.in);
 	}
 
