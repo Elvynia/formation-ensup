@@ -51,6 +51,8 @@ public class GameBook implements Runnable {
 			final Choice choice = this.readChoice(current.getChoices());
 			current = data.getParagraph(choice.getParagraphId());
 		}
+		System.out.println(current.getContent());
+		System.out.println("Le jeu est terminé, fermeture du programme.");
 		this.scanner.close();
 	}
 
