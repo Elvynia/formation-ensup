@@ -15,6 +15,7 @@ public class GameData {
 	
 	private List<Paragraph> paragraphs;
 	
+	
 	public GameData() {
 		this.paragraphs = new ArrayList<>();
 	}
@@ -35,6 +36,7 @@ public class GameData {
 		return result;
 	}
 
+	
 	@XmlAttribute
 	public String getId() {
 		return id;
@@ -43,7 +45,7 @@ public class GameData {
 	public void setId(String id) {
 		this.id = id;
 	}
-
+	
 	@XmlElementWrapper(name = "steps")
 	@XmlElement(name = "step")
 	public List<Paragraph> getParagraphs() {
@@ -53,5 +55,6 @@ public class GameData {
 	public void setParagraphs(List<Paragraph> paragraphs) {
 		this.paragraphs = paragraphs;
 	}
+	
 	
 }

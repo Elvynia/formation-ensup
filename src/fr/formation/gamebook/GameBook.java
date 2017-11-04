@@ -59,9 +59,7 @@ public class GameBook implements Runnable {
 		Paragraph current = data.getParagraph(0);
 		while (current.getChoices().size() > 0) {
 			System.out.println(current.getContent());
-			Questions question = data.getQuestion(1);
-			System.out.println(question);
-			
+			System.out.println(current.getQuestion());
 			
 			//System.out.println("Veuillez faire un choix :");
 			for (Choice c : current.getChoices()) {
