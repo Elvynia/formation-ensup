@@ -16,25 +16,12 @@ public class GameBook implements Runnable {
 	
 	//private static final String DATA_PATH = "C://code//formation-ensup/superhistoire.xml";
 
-
-
-private String getFileExtension(File file) {
-    String name = file.getName();
-    try {
-        return name.substring(name.lastIndexOf(".") + 1);
-    } catch (Exception e) {
-        return "";
-    }
-}
-
-
 	public static void main(String[] args) {
 		if (args.length >= 2) {
 			File f = new File(args[1]);
 			if(f.exists() && !f.isDirectory()) { 
 				String ext = f.getName().substring(f.getName().lastIndexOf(".")+1);
 				String xml = "xml";
-				System.out.println(ext);
 				if(ext.equals(xml)) {
 					new GameBook(args[0], args[1]).run();
 				}else {
@@ -46,7 +33,7 @@ private String getFileExtension(File file) {
 			}
 			
 		} else {
-			System.err.println("Usage : GameBook <username>, <xmlfilepath>");
+			System.err.println("Usage : GameBook <username>, Fchier : <xmlfilepath>");
 		}
 	}
 
