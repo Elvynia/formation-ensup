@@ -1,0 +1,33 @@
+﻿<!xml version="1.0" encoding="ISO-8859-1" ?>
+<!-- PM : Project Object Model -->
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>fr.formation</groupId>
+	<artifactId>GameBook</artifactId>
+	<version>0.0.1</version>
+	<packaging>jar</packaging>
+
+	<dependacies>	
+		<!-- Exemple de dépendance vers une librairie -->
+		<dependacy>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.9.1</version>
+		</dependacy>
+	</dependacies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<!-- GroupId optionnel pour les plugins de Maven -->
+				<artifactId>maven-compiler-plugin</artifactId>
+				<!-- Version optionnelle (mais déconseillé) pour les plugins de Maven-->
+				<configuration>
+					<sourceEncoding>UTF-8</sourceEncoding>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
