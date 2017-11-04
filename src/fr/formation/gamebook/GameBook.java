@@ -12,13 +12,13 @@ import fr.formation.gamebook.model.Paragraph;
 
 public class GameBook implements Runnable {
 	
-	private static final String DATA_PATH = "/home/jmasson/workspaces/superhistoire.xml";
+	//private static final String DATA_PATH = "C://code//formation-ensup/superhistoire.xml";
 
 	public static void main(String[] args) {
-		if (args.length >= 1) {
-			new GameBook(args[0]).run();
+		if (args.length >= 2) {
+			new GameBook(args[0], args[1]).run();
 		} else {
-			System.err.println("Usage : GameBook <username>");
+			System.err.println("Usage : GameBook <username>, <xmlfilepath>");
 		}
 	}
 
@@ -26,9 +26,9 @@ public class GameBook implements Runnable {
 	private DataLoader dataLoader;
 	private Scanner scanner;
 
-	private GameBook(String username) {
+	private GameBook(String username, String DATA_PATH) {
 		this.username = username;
-		this.dataLoader = new XmlDataLoader(GameBook.DATA_PATH);
+		this.dataLoader = new XmlDataLoader(DATA_PATH);
 		this.scanner = new Scanner(System.in);
 	}
 
