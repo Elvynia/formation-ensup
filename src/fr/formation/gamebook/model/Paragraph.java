@@ -13,6 +13,8 @@ public class Paragraph {
 	private String content;
 
 	private List<Choice> choices;
+	
+	private String question;
 
 	public Paragraph() {
 		this.choices = new ArrayList<>();
@@ -49,6 +51,15 @@ public class Paragraph {
 
 	public void setChoices(List<Choice> choices) {
 		this.choices = choices;
+	}
+	
+	@XmlElement(name = "question")
+	public String getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(String question) {
+		this.question = question;
 	}
 
 }
