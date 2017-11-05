@@ -8,23 +8,22 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name="game")
+@XmlRootElement(name = "game")
 public class GameData {
 
 	private String id;
-	
+
 	private List<Paragraph> paragraphs;
-	
-	
+
 	public GameData() {
 		this.paragraphs = new ArrayList<>();
 	}
-	
+
 	public GameData(String id) {
 		this();
 		this.id = id;
 	}
-	
+
 	public Paragraph getParagraph(Integer paragraphId) {
 		Paragraph result = null;
 		for (final Paragraph p : this.getParagraphs()) {
@@ -36,7 +35,6 @@ public class GameData {
 		return result;
 	}
 
-	
 	@XmlAttribute
 	public String getId() {
 		return id;
@@ -45,7 +43,7 @@ public class GameData {
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+
 	@XmlElementWrapper(name = "steps")
 	@XmlElement(name = "step")
 	public List<Paragraph> getParagraphs() {
@@ -55,6 +53,5 @@ public class GameData {
 	public void setParagraphs(List<Paragraph> paragraphs) {
 		this.paragraphs = paragraphs;
 	}
-	
-	
+
 }

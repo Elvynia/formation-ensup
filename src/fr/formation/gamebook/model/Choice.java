@@ -6,13 +6,13 @@ import javax.xml.bind.annotation.XmlValue;
 public class Choice {
 
 	private Integer id;
-	
+
 	private String content;
-	
+
 	private Integer paragraphId;
-	
+
 	public Choice() {
-		
+
 	}
 
 	public Choice(int id, String content, int paragraphId) {
@@ -39,7 +39,7 @@ public class Choice {
 		this.content = content;
 	}
 
-	@XmlAttribute(name="gotostep")
+	@XmlAttribute(name = "gotostep")
 	public Integer getParagraphId() {
 		return paragraphId;
 	}
@@ -47,5 +47,5 @@ public class Choice {
 	public void setParagraphId(Integer paragraphId) {
 		this.paragraphId = paragraphId;
 	}
-	
+
 }
