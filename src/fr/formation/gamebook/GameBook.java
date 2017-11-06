@@ -12,13 +12,13 @@ import fr.formation.gamebook.model.Paragraph;
 
 public class GameBook implements Runnable {
 	
-	private static final String DATA_PATH = "/home/jmasson/workspaces/superhistoire.xml";
+	//private static final String DATA_PATH = "/Users/jose/formation-ensup/superhistoire.xml";
 
 	public static void main(String[] args) {
-		if (args.length >= 1) {
-			new GameBook(args[0]).run();
+		if (args.length >= 2) {
+			new GameBook(args[0], args[1]).run();
 		} else {
-			System.err.println("Usage : GameBook <username>");
+			System.err.println("Usage : GameBook <username> <xmlfile>");
 		}
 	}
 
@@ -26,9 +26,9 @@ public class GameBook implements Runnable {
 	private DataLoader dataLoader;
 	private Scanner scanner;
 
-	private GameBook(String username) {
+	private GameBook(String username, String data_path) {
 		this.username = username;
-		this.dataLoader = new XmlDataLoader(GameBook.DATA_PATH);
+		this.dataLoader = new XmlDataLoader(data_path);
 		this.scanner = new Scanner(System.in);
 	}
 
@@ -44,7 +44,11 @@ public class GameBook implements Runnable {
 		Paragraph current = data.getParagraph(0);
 		while (current.getChoices().size() > 0) {
 			System.out.println(current.getContent());
-			System.out.println("Veuillez faire un choix :");
+
+
+
+
+			System.out.println(current.getQuestion());
 			for (Choice c : current.getChoices()) {
 				System.out.println("\t" + c.getId() + " - " + c.getContent());
 			}
