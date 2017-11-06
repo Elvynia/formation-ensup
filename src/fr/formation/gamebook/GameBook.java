@@ -52,7 +52,7 @@ public class GameBook implements Runnable {
 			current = data.getParagraph(choice.getParagraphId());
 		}
 		System.out.println(current.getContent());
-		System.out.println("Le jeu est terminé, fermeture du programme.");
+		System.out.println("Le jeu est termin?, fermeture du programme.");
 		this.scanner.close();
 	}
 
@@ -67,7 +67,7 @@ public class GameBook implements Runnable {
 			if (choice.isPresent()) {
 				result = choice.get();
 			} else {
-				System.err.println("Votre numéro de votre choix n'est pas valide.");
+				System.err.println("Votre num?ro de votre choix n'est pas valide.");
 			}
 		}
 		return result;

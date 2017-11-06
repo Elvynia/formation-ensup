@@ -17,23 +17,23 @@ public class MockDataLoader implements DataLoader {
 
 	private Paragraph buildParagraph3() {
 		final Paragraph p = new Paragraph(1);
-		p.setContent("Ce chemin mène au trésor, bravo vous avez gagné !");
+		p.setContent("Ce chemin m?ne au tr?sor, bravo vous avez gagn? !");
 		return p;
 	}
 
 	private Paragraph buildParagraph2() {
 		final Paragraph p = new Paragraph(2);
-		p.setContent("Ce chemin vous ramène à la lisière de la forêt");
-		p.getChoices().add(new Choice(0, "Revenir au début", 0));
+		p.setContent("Ce chemin vous ram?ne ? la lisi?re de la for?t");
+		p.getChoices().add(new Choice(0, "Revenir au d?but", 0));
 		return p;
 	}
 
 	private Paragraph buildParagraph1() {
 		final Paragraph p = new Paragraph(0);
 		p.setContent(
-				"Il était une fois un aventurier du dimanche qui voulait explorer "
-				+ "les bois perdus. Arrivé à l'entrée de la forêt, deux chemins "
-				+ "s'offrent à lui.");
+				"Il ?tait une fois un aventurier du dimanche qui voulait explorer "
+				+ "les bois perdus. Arriv? ? l'entr?e de la for?t, deux chemins "
+				+ "s'offrent ? lui.");
 		p.getChoices().add(new Choice(0, "Chemin de gauche", 1));
 		p.getChoices().add(new Choice(1, "Chemin de droite", 2));
 		return p;
