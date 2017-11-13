@@ -1,5 +1,6 @@
 package fr.formation.gamebook;
 
+import java.io.File;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
@@ -16,7 +17,28 @@ public class GameBook implements Runnable {
 
 	public static void main(String[] args) {
 		if (args.length >= 2) {
-			new GameBook(args[0], args[1]).run();
+			File file = new File(args[1]);
+
+			if (file.exists() && !file.isDirectory()) {
+				String extension = "";
+				int i = args[1].lastIndexOf('.');
+
+				if (i > 0) {
+					extension = args[1].substring(i+1);
+				}
+
+				if (extension.equals("xml")) {
+					if (file.canRead()) {
+						new GameBook(args[0], args[1]).run();
+					} else {
+						System.err.println("Le fichier " + args[1] + " ne peut pas être lu.");
+					}
+				} else {
+					System.err.println("Le fichier doit être un xml.");
+				}
+			} else {
+				System.err.println(args[1] + " n'est pas un fichier");
+			}
 		} else {
 			System.err.println("Usage : GameBook <username> <xmlfile>");
 		}
