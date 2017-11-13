@@ -24,10 +24,10 @@ public class XmlDataLoader implements DataLoader {
 			Unmarshaller transform = context.createUnmarshaller();
 			data = (GameData) transform.unmarshal(new File(this.dataPath));
 		} catch (final JAXBException e) {
-			System.err.println("Le fichier XML de données comporte des erreurs :");
+			System.err.println("Le fichier XML de donnÃ©es comporte des erreurs :");
 			e.printStackTrace();
-			// Valeur : 0 si arrêt normal, > à 0 si erreur gérée, < à 0 si
-			// erreur technique non prévue.
+			// Valeur : 0 si arrÃªt normal, > Ã  0 si erreur gÃ©rÃ©e, < Ã  0 si
+			// erreur technique non prÃ©vue.
 			System.exit(1);
 		}
 		return data;

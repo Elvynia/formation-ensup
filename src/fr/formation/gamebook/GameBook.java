@@ -1,5 +1,6 @@
 package fr.formation.gamebook;
 
+import java.io.File;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
@@ -11,14 +12,17 @@ import fr.formation.gamebook.model.GameData;
 import fr.formation.gamebook.model.Paragraph;
 
 public class GameBook implements Runnable {
-	
-	private static final String DATA_PATH = "/home/jmasson/workspaces/superhistoire.xml";
 
 	public static void main(String[] args) {
-		if (args.length >= 1) {
-			new GameBook(args[0]).run();
+		File file = new File(args[1]);
+		if (args.length < 2) {
+			System.err.println("Utilisation : GameBook <nom> <chemin>");
+		} else if (!file.exists() ){
+			System.err.println("Aucun fichier sélectionné.");
+		} else if (!args[1].substring(args[1].lastIndexOf(".")).equals(".xml")) {
+			System.err.println("Le fichier doit être au format XML.");
 		} else {
-			System.err.println("Usage : GameBook <username>");
+			new GameBook(args[0], args[1]).run();
 		}
 	}
 
@@ -26,9 +30,9 @@ public class GameBook implements Runnable {
 	private DataLoader dataLoader;
 	private Scanner scanner;
 
-	private GameBook(String username) {
+	private GameBook(String username, String dataPath) {
 		this.username = username;
-		this.dataLoader = new XmlDataLoader(GameBook.DATA_PATH);
+		this.dataLoader = new XmlDataLoader(dataPath);
 		this.scanner = new Scanner(System.in);
 	}
 
@@ -44,7 +48,7 @@ public class GameBook implements Runnable {
 		Paragraph current = data.getParagraph(0);
 		while (current.getChoices().size() > 0) {
 			System.out.println(current.getContent());
-			System.out.println("Veuillez faire un choix :");
+			System.out.println(current.getQuestion());
 			for (Choice c : current.getChoices()) {
 				System.out.println("\t" + c.getId() + " - " + c.getContent());
 			}
@@ -52,7 +56,7 @@ public class GameBook implements Runnable {
 			current = data.getParagraph(choice.getParagraphId());
 		}
 		System.out.println(current.getContent());
-		System.out.println("Le jeu est termin�, fermeture du programme.");
+		System.out.println("Le jeu est terminé, fermeture du programme.");
 		this.scanner.close();
 	}
 
@@ -67,7 +71,7 @@ public class GameBook implements Runnable {
 			if (choice.isPresent()) {
 				result = choice.get();
 			} else {
-				System.err.println("Votre num�ro de votre choix n'est pas valide.");
+				System.err.println("Votre numéro de votre choix n'est pas valide.");
 			}
 		}
 		return result;
